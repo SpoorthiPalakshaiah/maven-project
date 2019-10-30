@@ -1,9 +1,8 @@
 pipeline {
-  agent any
+  agent master
   stages{
     stage('Build'){
-        def mvn_version = 'localMaven'
-        withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+        steps{
             sh 'mvn clean package'
       }
     }
